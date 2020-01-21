@@ -160,8 +160,38 @@ Maven 拥有三套相互独立的生命周期: clean、default 和 site, 而每�
 
 ### 聚合与继承
 
+Maven的聚合特性(aggregation)能够使项目的多个模块聚合在一起构建, 而继承特性(inheritance)能够帮助抽取各模块相同的依赖、插件等配置,在简化模块配置的同时, 保持各模块一致.
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>car</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0.SNAPSHOT</version>
+
+    <modules>
+        <module>wheel</module>
+        <module>lamp</module>
+    </modules>
+
+</project>
+```
+
+如上xml如果没有car这个父module，我们需要到`wheel`和`lamp`下分别执行`mvn install`才能完成整个构建，而有了`car`后直接在`car`中执行`mvn install`即可完成整个构建
+
+如果`wheel`和`lamp`都需要某一个依赖,那么可以在父项目`car`的pom.xml中声明即可，`wheel`和`lamp`将会继承父项目的依赖。
 
 ## Maven自定义Plugin开发
+
+...
+
+---
 
 ## 参考
 - https://www.jianshu.com/p/b07e7dbd8e4c
