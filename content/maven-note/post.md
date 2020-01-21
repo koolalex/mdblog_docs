@@ -22,6 +22,7 @@ a-maven-project
 项目的根目录a-maven-project是项目名，它有一个项目描述文件pom.xml，存放Java源码的目录是src/main/java，存放资源文件的目录是src/main/resources，存放测试源码的目录是src/test/java，存放测试资源的目录是src/test/resources，最后，所有编译、打包生成的文件都放在target目录里。这些就是一个Maven项目的标准目录结构。
 
 **Maven依赖关系**
+
 scope | 说明 | 示例
 -|-|-
 compile | 编译是需要用到该jar包（默认） | commons-logging
