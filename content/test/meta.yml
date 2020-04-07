@@ -1,5 +1,4 @@
-title: This's Test Page Document
-category: note
+title: This is a Test Document
+category: test
 tags:
-    - tag1
-    - tag2
+  - test_tag
